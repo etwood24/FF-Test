@@ -10,7 +10,7 @@
      steps:
        - checkout
        - run: dotnet build
-        run: dotnet test --logger "trx;LogFileName=testresults.xml"
+       - run: dotnet test --logger "trx;LogFileName=testresults.xml"
        - store_artifacts:
             path: Test_Execution_Reports
             path: bin\Debug\netcoreapp3.1\TestResult.xml
