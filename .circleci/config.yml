@@ -12,4 +12,6 @@
        - run: dotnet build
        - run: dotnet test --logger "trx;LogFileName=testresults.xml"
        - store_test_results:
-            path: TestResults\TestResults.xml
+            path: TestResults
+       - store_artifacts:
+            path: TestResults\testresults.xml
