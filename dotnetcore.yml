@@ -24,9 +24,8 @@ jobs:
     - name: Test
       run: dotnet test --logger "trx;LogFileName=testresults.xml"
     - run:: 'mkdir --parents Test_Execution_Reports'
-    - run: 'env | grep GITHUB_ | sort > results/artifacts/'
     - name: Upload test artifacts
       uses: actions/upload-artifact@v1
       with:
         name: HTML Test Results
-        path: Test_Execution_Reports
+        path: ../Test_Execution_Reports
