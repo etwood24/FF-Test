@@ -10,6 +10,6 @@
      steps:
        - checkout
        - run: dotnet build
-       - run: dotnet test
+       - run: dotnet test --logger "trx;LogFileName=testresults.xml"
        - store_test_results:
-            path: TestResults.xml
+            path: TestResults\TestResults.xml
