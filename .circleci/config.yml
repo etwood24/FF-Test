@@ -14,4 +14,4 @@
        - store_test_results:
             path: TestResults
        - store_artifacts:
-            path: TestResults\testresults.xml
+            path: TestResults
