@@ -24,4 +24,6 @@ jobs:
     - name: Test
       run: dotnet test --logger "trx;LogFileName=testresults.xml"
     - uses: actions/upload-artifact@v1
-      with: /home/runner/work/FF-Test/FF-Test/Test_Execution_Reports/
+      with:
+        name: HTML Test Results
+        path: home/runner/work/FF-Test/FF-Test/Test_Execution_Reports/
