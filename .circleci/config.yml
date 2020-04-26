@@ -13,4 +13,5 @@
        - run: dotnet test --logger "trx;LogFileName=testresults.xml"
        - store_artifacts:
             path: Test_Execution_Reports
+       - store_artifacts:
             path: bin\Debug\netcoreapp3.1\TestResult.xml
