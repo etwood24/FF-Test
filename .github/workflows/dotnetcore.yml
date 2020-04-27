@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -24,4 +24,5 @@ jobs:
     - name: Test
       run: dotnet test --logger "trx;LogFileName=testresults.xml"
       uses: actions/upload-artifact@v1
-      with: /home/runner/work/FF-Test/FF-Test/Test_Execution_Reports/
+      with: /home/runner/work/FF-Test/FF-Test/Test_Execution_Reports/index.html
+      with: /home/runner/work/FF-Test/FF-Test/Test_Execution_Reports/dashboard.html
