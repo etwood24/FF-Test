@@ -74,7 +74,7 @@ namespace TradeMeAPITests
         {
             var config = new ConfigurationBuilder().AddJsonFile("testConfig.json").Build();
             var _uri = config["URI"];
-            var carBrand = "Kiaasdfasdf";
+            var carBrand = config["existingBrand"];
             RestClient restClient = new RestClient(_uri);
             RestRequest restRequest = new RestRequest(Method.GET);
             IRestResponse restResponse = restClient.Execute(restRequest);
@@ -91,7 +91,7 @@ namespace TradeMeAPITests
         {
             var config = new ConfigurationBuilder().AddJsonFile("testConfig.json").Build();
             var _uri = config["URI"];
-            var carBrand = "Kia";
+            var carBrand = config["existingBrand"];
             RestClient restClient = new RestClient(_uri);
             RestRequest restRequest = new RestRequest(Method.GET);
             IRestResponse restResponse = restClient.Execute(restRequest);
@@ -108,7 +108,7 @@ namespace TradeMeAPITests
         {
             var config = new ConfigurationBuilder().AddJsonFile("testConfig.json").Build();
             var _uri = config["URI"];
-            var carBrand = "Hispano Suiza";
+            var carBrand = config["nonExistingBrand"];
             RestClient restClient = new RestClient(_uri);
             RestRequest restRequest = new RestRequest(Method.GET);
             IRestResponse restResponse = restClient.Execute(restRequest);
