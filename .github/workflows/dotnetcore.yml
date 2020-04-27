@@ -22,8 +22,8 @@ jobs:
     - name: Build
       run: dotnet build
     - name: Test
-      run: dotnet test
+      run: dotnet test --logger "trx;LogFileName=testresults.xml"
     - uses: actions/upload-artifact@v1
       with:
         name: HTML Test Results
-        path: ./Test_Execution_Reports
+        path: ./TestResults
