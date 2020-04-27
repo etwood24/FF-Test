@@ -23,7 +23,6 @@ jobs:
       run: dotnet build
     - name: Test
       run: dotnet test --logger "trx;LogFileName=testresults.xml"
-    - run:: 'mkdir --parents Test_Execution_Reports'
     - name: Upload test artifacts
       uses: actions/upload-artifact@v1
       with:
