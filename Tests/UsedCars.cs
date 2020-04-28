@@ -9,6 +9,7 @@ using AventStack.ExtentReports;
 using System.IO;
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework.Interfaces;
+using System.Runtime.InteropServices;
 
 namespace TradeMeAPITests
 {
@@ -26,14 +27,24 @@ namespace TradeMeAPITests
             try
             {
                 //To create report directory and add HTML report into it
-
                 _extent = new AventStack.ExtentReports.ExtentReports();
-                var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "");
-                DirectoryInfo di = Directory.CreateDirectory(dir + "\\Test_Execution_Reports");
-                var htmlReporter = new ExtentHtmlReporter(dir + "\\Test_Execution_Reports" + "\\Automation_Report" + ".html");
-                _extent.AddSystemInfo("Environment", "TradeMe Sandbox API");
-                _extent.AddSystemInfo("User Name", "Evan Wood");
-                _extent.AttachReporter(htmlReporter);
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "");
+                    DirectoryInfo di = Directory.CreateDirectory(dir + "\\Test_Execution_Reports");
+                    var htmlReporter = new ExtentHtmlReporter(dir + "\\Test_Execution_Reports" + "\\Automation_Report" + ".html");
+                    _extent.AddSystemInfo("Environment", "TradeMe Sandbox API");
+                    _extent.AddSystemInfo("User Name", "Evan Wood");
+                    _extent.AttachReporter(htmlReporter);
+                } else
+                {
+                    var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("/bin/Debug/netcoreapp3.1", "");
+                    DirectoryInfo di = Directory.CreateDirectory(dir + "/Test_Execution_Reports");
+                    var htmlReporter = new ExtentHtmlReporter(dir + "/Test_Execution_Reports" + "/Automation_Report" + ".html");
+                    _extent.AddSystemInfo("Environment", "TradeMe Sandbox API");
+                    _extent.AddSystemInfo("User Name", "Evan Wood");
+                    _extent.AttachReporter(htmlReporter);
+                }
             }
             catch (Exception e)
             {
